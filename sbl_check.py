@@ -10,8 +10,6 @@ networks = ['1.2.3.0/24', ]
 ips = ['1.2.3.2',
        '1.2.3.4']
 
-bll = ['dul.dnsbl.sorbs.net', ]
-
 bls = ['aspews.ext.sorbs.net',
        'b.barracudacentral.org',
        'bb.barracudacentral.org',
@@ -87,7 +85,7 @@ def checking_ips(ips):
         first, second, third, fourth = str(ip).split('.')
         ipR = str(fourth) + '.' + str(third) + '.' + str(second) + '.' + str(first)
 #        print("Checking now " + str(ip))
-        for bl in bll:
+        for bl in bls:
             command = "/usr/bin/dig +short " + ipR + '.' + bl
             try:
                 returned = subprocess.check_output(command, shell=True)
